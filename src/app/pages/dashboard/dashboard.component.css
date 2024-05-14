@@ -1,0 +1,13 @@
+
+.dash-component {
+  @apply w-full h-screen p-2 overflow-y-auto;
+  & .metrics {
+    @apply grid md:grid-flow-col gap-2;
+  }
+  & .signup-targets {
+    @apply grid gap-2 ;
+  }
+  & .card-div {
+    @apply bg-green;
+  }
+}

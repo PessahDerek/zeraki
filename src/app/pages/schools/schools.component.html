@@ -1,0 +1,45 @@
+<div class="w-full min-h-[100vh] p-2">
+  <h2 class="font-black">School management</h2>
+  <div class="flex gap-2">
+    <table class="w-max min-w-[300px] grid">
+      <thead class="w-full grid">
+      <tr class="w-full bg-blue-800 h-[40px] leading-loose text-white">
+        <th class="w-[50px] text-center">Id</th>
+        <th>Schools</th>
+      </tr>
+      </thead>
+      <tbody class="grid">
+      <tr (click)="selectSchool(school.id)" *ngFor="let school of schools"
+          class="bg-white cursor-pointer hover:text-blue-700 {{school.id === selected?.id ? 'text-green': ''}} h-[40px] leading-loose">
+        <td class="w-[50px] text-center">{{ school.id }}.</td>
+        <td>{{ school.name }}</td>
+      </tr>
+      </tbody>
+    </table>
+    <section class="flex-1 w-full bg-white rounded-md p-2 grid auto-rows-max gap-2">
+      <h2 class="font-bold truncate">{{selected?.name}}</h2>
+      <div class="flex gap-2 flex-wrap">
+        <div class="border-r-2 border-solid border-r-slate-200 p-2">
+          <strong>Type</strong>
+          <p>{{selected?.type}}</p>
+        </div>
+        <div class="border-r-2 border-solid border-r-slate-200 p-2">
+          <strong>Products</strong>
+          <ul class="flex gap-2 flex-wrap">
+            <ul *ngFor="let product of selectedProducts">
+            <li>-{{product}}</li>
+            </ul>
+          </ul>
+        </div>
+        <div class="border-r-2 border-solid border-r-slate-200 p-2">
+          <strong>Contact</strong>
+          <p>{{selected?.contact_info?.phone || selected?.contact_info?.email}}</p>
+        </div>
+        <div class="border-r-2 border-solid border-r-slate-200 p-2 bg-green text-white">
+          <strong>Balance</strong>
+          <p>{{addComma(selectedBalance)}}</p>
+        </div>
+      </div>
+    </section>
+  </div>
+</div>

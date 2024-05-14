@@ -1,0 +1,31 @@
+<div class="dash-component">
+  <h2 class="font-black">Dashboard</h2>
+  <div class="metrics">
+    <div *ngFor="let metric of Object.keys(metrics)">
+      <card [title]="metric" [values]="metrics[metric].value"></card>
+    </div>
+  </div>
+  <div class="signup-targets">
+    <h2>Signup targets</h2>
+    <div class="flex gap-2 flex-wrap justify-around">
+      <div class="flex-1" *ngFor="let target of Object.keys(targets['signups'])">
+        <app-pie-chart [category]="target" [chartData]="targets['signups'][target]"/>
+      </div>
+    </div>
+  </div>
+  <div class="flex flex-wrap justify-center gap-4 p-4">
+    <div class="w-max grid gap-2">
+      <h2>Signup distribution</h2>
+      <div class="w-full md:w-max h-max flex pl-4 pr-4 rounded-md bg-white">
+        <app-graph-bar [chartData]="signupDistribution" title="Finance"/>
+      </div>
+    </div>
+    <!--    -->
+    <div class="flex-1 w-full h-max grid gap-2 ">
+      <h2>Upcoming invoices</h2>
+      <div class="grid gap-2 bg-white rounded-md">
+          <app-upcoming-invoice [invoices]="upcomingInvoices" />
+      </div>
+    </div>
+  </div>
+</div>

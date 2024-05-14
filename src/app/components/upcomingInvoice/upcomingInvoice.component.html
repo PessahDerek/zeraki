@@ -1,0 +1,32 @@
+<div class="border-[1px]">
+  <table class="w-full grid gap-2 upcoming-invoices-table ">
+    <thead class=" leading-loose bg-blue">
+    <tr class="grid grid-flow-col text-white ">
+      <th class="">Id</th>
+      <th class="">Invoice Item</th>
+      <th class="">Amount</th>
+      <th class="">Date</th>
+      <th class="">Action</th>
+    </tr>
+    </thead>
+    <tbody class="w-full leading-loose grid gap-2">
+    <tr *ngFor="let invoice of invoices" class="bg-white hover:text-blue-700 cursor-pointer grid grid-flow-col ">
+      <td>{{ invoice.id }}</td>
+      <td>{{ invoice.invoice_item }}</td>
+      <td>{{ addComma(invoice.amount) }}</td>
+      <td>{{ invoice.due_date }}</td>
+      <td>
+        <button (click)="toggleCollect()" class="primary-btn">Collect</button>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+  <form *ngIf="showPayment" class="modal-form">
+    <div>
+      <h2>Complete payment</h2>
+      <input placeholder="M-pesa number">
+      <button class="primary-btn">Prompt to pay</button>
+      <button class="outline-btn">Cancel</button>
+    </div>
+  </form>
+</div>

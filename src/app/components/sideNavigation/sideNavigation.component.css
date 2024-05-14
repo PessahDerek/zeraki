@@ -1,0 +1,11 @@
+
+.side-nav {
+  @apply w-[200px] h-screen text-center text-white grid auto-rows-max gap-2 bg-gradient-to-t from-blue via-10% to-green;
+
+  div {
+    @apply grid gap-1 p-2;
+  }
+  a {
+    @apply w-full p-2 rounded-md cursor-pointer text-center bg-green-300 text-white hover:bg-green-400 hover:text-white active:bg-green-600;
+  }
+}

@@ -1,1 +1,57 @@
 /* You can add global styles to this file, and also import other style files */
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  position: relative;
+}
+
+h1 {
+  @apply text-6xl;
+}
+h2 {
+  @apply text-4xl;
+}
+table {
+  td {
+    @apply truncate
+  }
+}
+.upcoming-invoices-table {
+  tr {
+    height: 50px;
+    grid-template-columns: 10% 30% 20% 20% 20%;
+    text-align: center;
+    @apply pl-2 pr-2 leading-[50px];
+  }
+
+}
+.modal-form {
+  @apply w-full h-full flex bg-white bg-opacity-65 p-2 z-30 rounded-md drop-shadow-2xl fixed m-auto left-0 right-0 top-0 bottom-0;
+  div {
+    @apply w-[300px] h-max bg-white m-auto shadow-2xl grid gap-1 p-2;
+  }
+}
+
+input {
+  @apply w-full h-[50px] transition-all pl-2 rounded-md bg-slate-100 focus:bg-white outline-transparent;
+  &:focus{
+    @apply rounded-b-none border-b-2 border-solid border-b-blue-200;
+  }
+}
+
+button {
+  @apply w-full h-[50px] rounded-md ;
+  &.primary-btn {
+    @apply bg-blue-800 text-white hover:bg-blue-700 active:bg-blue-800;
+  }
+  &.outline-btn {
+    @apply bg-transparent border-solid border-2 border-blue-800;
+  }
+}
+

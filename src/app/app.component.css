@@ -1,0 +1,4 @@
+
+main {
+  @apply w-full flex h-full gap-2 min-h-screen bg-slate-200;
+}
